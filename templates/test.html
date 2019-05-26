@@ -8,10 +8,50 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<link rel="stylesheet" href={% static 'css/style.css' %}>
     <title>Document</title>
+
+
 </head>
+<script>    $('.openBtn').click(function (e) {
+        setTimeout(function () {
+            $('.popup').removeClass('animationClose').addClass('animationOpen');
+        }, 100);
+        $('.obscure').fadeIn(50);
+        e.preventDefault();
+    });
+
+    $('.closeBtn').click(function (e) {
+        e.preventDefault();
+        setTimeout(function () {
+            $('.obscure').fadeOut(350);
+        }, 50);
+        $('.popup').removeClass('animationOpen').addClass('animationClose');
+    });</script>
 
 <body>
     <h1>Hello me</h1>
+
+
+<div class="obscure">
+    <div class="popup animationClose">
+      <h1>Hey, i'm a Popup</h1>
+      <h2>I'm nice to meet you, now please close me, thanks.</h2>
+      <a class="closeBtn" href="#">Close</a>
+    </div></div>
+<a class="openBtn" href="#">Click!</a>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
+</script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous">
+</script>
+
+<script src="{% static 'js/common.js' %}"></script>
+
+
 </body>
 
 </html>

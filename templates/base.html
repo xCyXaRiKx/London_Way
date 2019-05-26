@@ -7,7 +7,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-	<title>{% block title %}The first underground way{% endblock title %}</title>
+	<title> {% block title %} The first underground way {% endblock title %} </title>
 	<link rel="stylesheet" href={% static 'css/style.css' %}>
 	<link rel="stylesheet" href={% static 'css\fonts.css' %}>
 	<link rel="stylesheet" href={% static 'css\normalize.css' %}>
@@ -26,44 +26,50 @@
 </head>
 
 <body>
+
 	<!-- Parallax -->
-	<header class="top_container main_img" data-image-src=
-    {% block main_img %}
-    {% static 'img/main.jpg' %}
-    {% endblock main_img %}
-    data-parallax="scroll" speed="0.9"
-		data-z-index="-2">
+	<header class="top_container main_img" data-image-src={% block main_img %} {% static 'img/main.jpg' %}
+		{% endblock main_img %} data-parallax="scroll" speed="0.9" data-z-index="-2">
 		<!-- End Parallax -->
 		<div class="main_wrapper">
 			<div class="top_logo">
-				<h1>{% block main_title %}The first underground way{% endblock main_title %}</h1>
+				<h1>{% block main_title %} The first underground way {% endblock main_title %}</h1>
 				<p>The first London's undergorund line was built in 1863</p>
 			</div>
 			<button type="button" class="btn btn-outline-light top_button text-uppercase">Read more</button>
 			<div class="header_bottom container-fluid">
-				<div class="nav_wrapper row">
+				<nav class="nav_wrapper row">
 					<div class="col-md-4 col-4">
-						<a href="#history"><button type="button" class="btn btn-outline-light" href="#history">
+						<a href="{% url 'facts' %}">
+							<button type="button" class="btn btn-outline-light">
 								<i class="far fa-bookmark"></i> <span class="menu_text">Facts</span></button></a>
 					</div>
-					<a href="#gallery">
-						<div class="col-md-4 col-4"><button type="button" class="btn btn-outline-light">
-								<i class="fas fa-camera-retro"></i> <span class="menu_text">Gallery</span></button>
-					</a>
-				</div>
-				<a href="#contact">
-					<div class="col-md-4 col-4"><button type="button" class="btn btn-outline-light">
-							<i class="far fa-address-book"></i> <span class="menu_text">Contacts</span></button>
+
+						<div class="col-md-4 col-4">
+								<a href="#gallery">
+									<button type="button" class="btn btn-outline-light">
+								<i class="fas fa-camera-retro"></i>
+								<span class="menu_text">Gallery</span>
+							</button>
+						</a>
+						</div>
+
+					<div class="col-md-4 col-4">
+						<a href="#contact">
+						<button type="button" class="btn btn-outline-light">
+							<i class="far fa-address-book"></i>
+							<span class="menu_text">Contacts</span>
+						</button>
 				</a>
 			</div>
-		</div>
+		</nav>
 		</div>
 		</div>
 		</div>
 	</header>
-						{% block main_text %}
-						Hello
-						{% endblock main_text %}
+	{% block main_text %}
+	Hello
+	{% endblock main_text %}
 
 	<footer class="sect_white" id="contact">
 		<div class="container">
@@ -99,7 +105,7 @@
 			</div>
 			<div class="row">
 				<div class="col-md-12 text-center text-uppercase">
-					<p>@Powered by k.aleksei_ 2018</p>
+					<p>@Powered and Created by k.aleksei_ 2019</p>
 				</div>
 
 			</div>
@@ -111,27 +117,21 @@
 
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-		crossorigin="anonymous"></script>
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+	</script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-		integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-		crossorigin="anonymous"></script>
+		integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
+	</script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
-		integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
-		crossorigin="anonymous"></script>
+		integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous">
+	</script>
+
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src={% static 'libs/parallax/parallax.min.js' %}></script>
+	<script src="{% static 'js/common.js' %}"></script>
 
-	<script src={% static 'libs/parallax/parallax.min.js' %}></script>
-
-	<!-- Screen size auto detect -->
 	<script type="text/javascript">
-		function heightDetect() {
-			$(".top_container").css("height", $(window).height());
-		};
-		heightDetect();
-		$(window).resize(function () {
-			heightDetect();
-		});
+
 	</script>
 </body>
 

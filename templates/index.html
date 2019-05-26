@@ -1,19 +1,63 @@
 {% extends 'base.html' %}
 
-{% load staticfiles %}{% block title %} Hello {% endblock title %}
+{% load staticfiles %}
+
+{% block title %} The first underground way {% endblock title %}
 
 {% block main_text %}
+
 
 <section class="history_sect sect_white" id="history">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <div class="sect_topic text-center">
-                    <h2>Facts</h2>
+                    <h2>The Most Popular Facts</h2>
                 </div>
-                {% block white_data %} WHITE DATA {% endblock white_data %}
             </div>
+
+            {% for fact in facts %}
+
+            {% if fact.id == 1 %}
+
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>{{ fact.name }}</h3>
+                    <p class="text-justify ">
+                            
+                        {{ fact.short_description }}
+                    </p>
+                    <p class="text-justify sec_p">
+                        {{ fact.main_text }}
+                    </p>
+                </div>
+                <div class="col-md-6">
+                    <img src="{{ fact.main_image.img.url }}" class="img-fluid" alt="" />
+                </div>
+            </div>
+
+            {% else %}
+            <div class="row after_line">
+                <div class="col-md-6">
+                    <img src="{{ fact.main_image.img.url }}" class="img-fluid" alt="fact.alt_image" />
+                </div>
+
+                <div class="col-md-6">
+                    <h3>{{ fact.name }}</h3>
+                    <p class="text-justify ">
+                        {{ fact.short_description }}
+                    </p>
+                    <p class="text-justify sec_p">
+                        {{ fact.main_text }}
+                    </p>
+                </div>
+
+            </div>
+            {% endif %}
+
+            {% endfor facts %}
         </div>
+    </div>
 </section>
 
 <section class="gallery sect_black" id="gallery">
@@ -23,7 +67,17 @@
                 <div class="sect_topic text-center">
                     <h2>Gallery</h2>
                 </div>
-                Black Data
+                <div class="row">
+                {% for image in gallery %}
+                <div class="col-md-3">
+                        <img src="{{ image.img.url }}" class="img-thumbnail"
+                            alt="{{ image.alt_text }}">
+                        <p>{{ image.alt_text }}
+                        </p>
+                    </div>
+
+                {% endfor gallery %}
+            </div>
             </div>
         </div>
 </section>
