@@ -1,0 +1,102 @@
+/* Extra small devices (phones, less than 768px) */
+/* No media query since this is the default in Bootstrap */
+
+
+/* Special for Iphone SE Retina  */
+@media only screen and (max-width: 320px) and (orientation: portrait){
+
+	.main_wrapper .top_logo h1{
+		font-size: 21px;
+	}
+	.main_wrapper .top_logo{
+		margin-top: 40%;
+	}
+	.main_wrapper .top_logo p{
+		font-size: 15px;
+	}
+	.nav_wrapper .menu_text{
+		display: none;
+	}
+	.main_wrapper .header_bottom i{
+		font-size: 30px
+	}
+	.main_wrapper .header_bottom .col-4{
+		max-width: 30.333%
+	}
+}
+@media only screen and (max-width: 580px) and (max-height: 320px){
+
+
+	.main_wrapper .top_logo h1{
+		font-size: 30px;
+	}
+	.main_wrapper .top_logo{
+		margin-top: 10%;
+	}
+	.main_wrapper .top_logo p{
+		font-size: 15px;
+	}
+	.nav_wrapper .menu_text{
+		display: none;
+	}
+	.main_wrapper .header_bottom i{
+		font-size: 30px
+	}
+}
+/* Special for Iphone 7+ landscape  */
+@media only screen and (max-width: 736px) and (max-height: 414px){
+	.main_wrapper .top_logo h1{
+		font-size: 30px;
+	}
+	.main_wrapper .top_logo{
+		margin-top: 10%;
+	}
+	.main_wrapper .top_logo p{
+		font-size: 15px;
+	}
+	.nav_wrapper .menu_text{
+		display: none;
+	}
+	.main_wrapper .header_bottom i{
+		font-size: 30px
+	}
+}
+
+
+@media only screen and (max-height: 600px){
+	.main_wrapper .top_logo{
+		margin-top: 5%;
+	}
+	.main_wrapper .top_logo h1{
+		font-size: 40px;
+	}
+}
+/* Extra small devices (Phones, less than 544px) */	
+@media only screen and (max-width: 370px){
+		.nav_wrapper .menu_text{
+		display: none;
+	}
+		.main_wrapper .header_bottom i{
+		font-size: 30px
+	}
+}
+
+/* Small devices (landscape phones, 544px and up) */
+@media only screen and (min-width: 544px) {  
+
+}
+
+/* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
+@media only screen and (min-width: 768px) {  
+
+}
+
+/* Large devices (desktops, 992px and up) */
+@media only screen and (min-width: 992px) { 
+
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {  
+
+}
