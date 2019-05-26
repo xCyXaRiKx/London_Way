@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}{% block title %} Hello {% endblock title %}
+
+{% block main_text %}
+
+<section class="history_sect sect_white" id="history">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="sect_topic text-center">
+                    <h2>Facts</h2>
+                </div>
+                {% block white_data %} WHITE DATA {% endblock white_data %}
+            </div>
+        </div>
+</section>
+
+<section class="gallery sect_black" id="gallery">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="sect_topic text-center">
+                    <h2>Gallery</h2>
+                </div>
+                Black Data
+            </div>
+        </div>
+</section>
+
+{% endblock main_text %}

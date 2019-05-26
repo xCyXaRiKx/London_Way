@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'debug_toolbar',
+    'U_stations',
 ]
 
 MIDDLEWARE = [
@@ -47,6 +49,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'London_Way.urls'
@@ -67,6 +70,9 @@ TEMPLATES = [
         },
     },
 ]
+
+
+INTERNAL_IPS = ['127.0.0.1'] #for debug_toolbar
 
 WSGI_APPLICATION = 'London_Way.wsgi.application'
 
@@ -119,3 +125,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    (os.path.join(BASE_DIR, 'static/')),
+    #(os.path.join(BASE_DIR, 'static/css')),
+    #(os.path.join(BASE_DIR, 'static/img')),
+]
+
