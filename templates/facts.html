@@ -4,8 +4,9 @@
 
 {% block title %} Facts|Facts about first underground way {% endblock title %}
 
-{% block main_title %} Facts about first underground way{% endblock main_title %}
+{% block main_title %} Facts{% endblock main_title %}
 
+{% block nav_facts_is_active %} is_active {% endblock %}
 {% block main_text %}
 
 <section class="facts sect_black">
@@ -22,11 +23,11 @@
 
                         <!-- <input type="image" src="{{ fact.main_image.img.url }}" width="150px" /> -->
 
-                        <a href="#img_wrapper" class="button_wrapper" id="item" data-toggle="modal"
+                        <a href="#img_wrapper" class="" id="item" data-toggle="modal"
                             data-target="#modal_window_{{ fact.id }}">
-                            <img src="{{ fact.main_image.img.url }}" class="img-thumbnail"
+                            <img src="{{ fact.main_image.img.url }}" class="img-thumbnail animated fadeIn delay-1s"
                                 alt="{{ fact.main_image.alt_text }}">
-                                <p>{{fact.name}}</p>
+                            <p class="animated fadeIn delay-1s">{{fact.name}}</p>
                             <!-- Modal -->
                             <div id="modal_window_{{ fact.id }}" class="modal fade modal_window_wrapper" role="dialog">
                                 <div class="modal-dialog">
@@ -35,7 +36,8 @@
                                     <div class="modal-content modal_wrapper">
                                         <div class="modal-header">
                                             <h3 class="modal-title">{{fact.name}}</h3>
-                                            <button type="button" class="close button_close" data-dismiss="modal">&times;</button>
+                                            <button type="button" class="close button_close"
+                                                data-dismiss="modal">&times;</button>
                                         </div>
                                         <div class="modal-body">
 

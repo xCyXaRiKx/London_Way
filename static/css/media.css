@@ -33,6 +33,9 @@
 	.main_wrapper .top_logo{
 		margin-top: 10%;
 	}
+	.nav_wrapper .menu_text{
+		display: none;
+	}
 	.main_wrapper .top_logo p{
 		font-size: 15px;
 	}
@@ -80,6 +83,12 @@
 		font-size: 30px
 	}
 }
+
+
+@media only screen and (max-height: 780px) and (min-width: 100px){
+	.top_container .main_wrapper .top_logo{
+		margin-top: 10% ;
+	}
 
 /* Small devices (landscape phones, 544px and up) */
 @media only screen and (min-width: 544px) {  

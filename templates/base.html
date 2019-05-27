@@ -12,6 +12,7 @@
 	<link rel="stylesheet" href={% static 'css\fonts.css' %}>
 	<link rel="stylesheet" href={% static 'css\normalize.css' %}>
 	<link rel="stylesheet" href={% static 'css\media.css' %}>
+	<link rel="stylesheet" href={% static 'css\animate.css' %}>
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.11/css/all.css"
 		integrity="sha384-p2jx59pefphTFIpeqCcISO9MdVfIm4pNnsL08A6v5vaQc4owkQqxMV8kg4Yvhaw/" crossorigin="anonymous">
 	<!-- Bootstrap -->
@@ -25,44 +26,52 @@
   <![endif]-->
 </head>
 
-<body>
+<body class ="animated fadeIn">
 	<!-- Parallax -->
 	<header class="top_container main_img" data-image-src={% block main_img %} {% static 'img/main.jpg' %}
 		{% endblock main_img %} data-parallax="scroll" speed="0.9" data-z-index="-2">
 		<!-- End Parallax -->
 		<div class="main_wrapper">
-			<div class="top_logo">
+			<div class="top_logo animated fadeInDown ">
 				<h1>{% block main_title %} The first underground way {% endblock main_title %}</h1>
 				<p>The first London's undergorund line was built in 1863</p>
 			</div>
-			<a  href="{% url 'index' %}#facts"><button type="button" class="btn btn-outline-light top_button text-uppercase">Read more</button></a>
+			<a class="face-button animated infinite flash delay-1s" href="{% url 'index' %}#facts">
+				<div class="face-primary">
+					Read more
+				</div>
+				<div class="face-secondary">
+					Click
+				</div>
+			</a>
+
 			<div class="header_bottom container-fluid">
 				<nav class="nav_wrapper row">
 					<div class="col-md-4 col-4">
 						<a href="{% url 'facts' %}">
-							<button type="button" class="btn btn-outline-light">
+							<button type="button" class="btn btn-outline-light {% block nav_facts_is_active %} {% endblock %}">
 								<i class="far fa-bookmark"></i> <span class="menu_text">Facts</span></button></a>
 					</div>
 
-						<div class="col-md-4 col-4">
-								<a href="{% url 'gallery' %}">
-									<button type="button" class="btn btn-outline-light">
+					<div class="col-md-4 col-4">
+						<a href="{% url 'gallery' %}">
+							<button type="button" class="btn btn-outline-light {% block nav_gallery_is_active %} {% endblock %}">
 								<i class="fas fa-camera-retro"></i>
 								<span class="menu_text">Gallery</span>
 							</button>
 						</a>
-						</div>
+					</div>
 
 					<div class="col-md-4 col-4">
 						<a href="#contact">
-						<button type="button" class="btn btn-outline-light">
-							<i class="far fa-address-book"></i>
-							<span class="menu_text">Contacts</span>
-						</button>
-				</a>
+							<button type="button" class="btn btn-outline-light {% block nav_contacts_is_active %} {% endblock %}">
+								<i class="far fa-address-book"></i>
+								<span class="menu_text">Contacts</span>
+							</button>
+						</a>
+					</div>
+				</nav>
 			</div>
-		</nav>
-		</div>
 		</div>
 		</div>
 	</header>
@@ -124,7 +133,7 @@
 	</script>
 
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src={% static 'libs/parallax/parallax.min.js' %}></script>
+	<script src={% static 'libs/parallax/parallax.min.js' %}></script>
 	<script src="{% static 'js/common.js' %}"></script>
 
 	<script type="text/javascript">

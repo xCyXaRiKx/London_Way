@@ -5,25 +5,53 @@
 {% block title %} Gallery | The first underground way {% endblock title %}
 
 {% block main_title %} Gallery {% endblock main_title %}
-
+{% block nav_gallery_is_active %} is_active {% endblock %}
 {% block main_text %}
 
-<section class="gallery sect_white" id="gallery">
+<section class="gallery sect_black" id="gallery">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <div class="sect_topic text-center">
                     <h2>Gallery</h2>
                 </div>
-                     {% for image in images %}
+                <div class="row">
 
-                    <h3><img src="{{ image.img.url }}" width="100px"> </h3>
+                    {% for image in images %}
+
+                    <div class="col-md-3 col-6 animated fadeIn delay-1s">
+                        <a href="#img_wrapper" class="" id="item" data-toggle="modal"
+                            data-target="#modal_window_{{ image.id }}">
+                            <img src="{{ image.img.url }}" class="img-thumbnail" alt="{{ image.alt_text }}">
+                        </a>
+                    </div>
+
+                    <div id="modal_window_{{ image.id }}" class="modal fade modal_window_wrapper " role="dialog">
+                        <div class="modal-dialog">
+
+                            <!-- Modal content-->
+                            <div class="modal-content modal_wrapper">
+                                <div class="modal-header">
+                                    <h3 class="modal-title">{{ image.alt_text }}</h3>
+                                    <button type="button" class="close button_close"
+                                        data-dismiss="modal">&times;</button>
+                                </div>
+                                <div class="modal-body">
+                                        <img src="{{ image.img.url }}" class="img-thumbnail" alt="{{ image.alt_text }}">
+                                </div>
+                                <div class="modal-footer">
+                                    <p>Last change: {{ image.change_date }}</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
 
                     {% endfor images %}
 
+                </div>
             </div>
         </div>
-    </div>
 </section>
 
 {% endblock main_text %}
