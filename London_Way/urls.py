@@ -22,9 +22,10 @@ from U_stations import views
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
-    url(r'^$', views.index),
-    url(r'^facts/$', views.facts, name='test'),
-    url(r'^test/$', views.test, name='facts'),
+    url(r'^$', views.index, name ='index'),
+    url(r'^facts/$', views.facts, name='facts'),
+    url(r'^gallery/$', views.gallery, name='gallery'),
+    url(r'^test/$', views.test, name='test'),
     path('admin/', admin.site.urls),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

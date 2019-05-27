@@ -8,22 +8,61 @@
 
 {% block main_text %}
 
-<section class="gallery sect_black" id="gallery">
+<section class="facts sect_black">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <div class="sect_topic text-center">
                     <h2>Facts</h2>
                 </div>
-                     {% for fact in facts %}
+                <div class="row">
+                    {% for fact in facts %}
 
-                    <h3>{{ fact.name }} </h3>
+                    <div class="col-md-3">
 
+                        <!-- <input type="image" src="{{ fact.main_image.img.url }}" width="150px" /> -->
+
+                        <a href="#img_wrapper" class="button_wrapper" id="item" data-toggle="modal"
+                            data-target="#modal_window_{{ fact.id }}">
+                            <img src="{{ fact.main_image.img.url }}" class="img-thumbnail"
+                                alt="{{ fact.main_image.alt_text }}">
+                                <p>{{fact.name}}</p>
+                            <!-- Modal -->
+                            <div id="modal_window_{{ fact.id }}" class="modal fade modal_window_wrapper" role="dialog">
+                                <div class="modal-dialog">
+
+                                    <!-- Modal content-->
+                                    <div class="modal-content modal_wrapper">
+                                        <div class="modal-header">
+                                            <h3 class="modal-title">{{fact.name}}</h3>
+                                            <button type="button" class="close button_close" data-dismiss="modal">&times;</button>
+                                        </div>
+                                        <div class="modal-body">
+
+                                            <p class="text-justify ">
+                                                <img src="{{ fact.main_image.img.url }}" class="img-thumbnail"
+                                                    alt="{{ fact.main_image.alt_text }}">
+                                                {{ fact.short_description }}
+                                            </p>
+                                            <p class="text-justify sec_p">
+                                                {{ fact.main_text }}
+                                            </p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <p>Last change: {{ fact.change_date }}</p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </a>
+                    </div>
                     {% endfor facts %}
-
+                </div>
             </div>
         </div>
-    </div>
 </section>
+
 
 {% endblock main_text %}

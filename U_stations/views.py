@@ -12,7 +12,13 @@ def index(request):
 
 def facts(request):
     context = {}
-    return render(request, 'facts.html')
+    context['facts'] = fact.objects.all()
+    return render(request, 'facts.html', context)
+
+def gallery(request):
+    context = {}
+    context['images'] = image.objects.all()
+    return render(request, 'gallery.html', context)
 
 def test(request):
     return render(request, 'test.html')
