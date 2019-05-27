@@ -15,18 +15,15 @@
                 <div class="sect_topic text-center">
                     <h2>Facts</h2>
                 </div>
+                     {% for fact in facts %}
 
-              <div class="obscure">
-    <div class="popup animationClose">
-      Hey, i'm a Popup
-      I'm nice to meet you, now please close me, thanks.
-      <a class="closeBtn" href="#">Close</a>
-    </div></div>
-<a class="openBtn" href="#">Click!</a>
+                    <h3>{{ fact.name }} </h3>
 
+                    {% endfor facts %}
 
             </div>
         </div>
+    </div>
 </section>
 
 {% endblock main_text %}
