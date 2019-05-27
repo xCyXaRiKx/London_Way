@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block title %} Gallery | The first underground way {% endblock title %}
+
+{% block main_title %} Gallery {% endblock main_title %}
+
+{% block main_text %}
+
+<section class="gallery sect_black" id="gallery">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="sect_topic text-center">
+                    <h2>Gallery</h2>
+                </div>
+                     {% for image in images %}
+
+                    <h3><img src="{{ image.img.url }}" width="100px"> </h3>
+
+                    {% endfor images %}
+
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock main_text %}
